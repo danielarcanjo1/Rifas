@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import router from "./src/routes/userRouter.js";
+import router from "./src/routes/index.js";
 import sequelize from "./src/config/database.js";
 
 const PORT = process.env.SERVER_PORT;

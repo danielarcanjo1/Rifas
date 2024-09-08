@@ -155,7 +155,8 @@ export default function DataForm() {
                <option value="10000">10.000</option>
                <option value="100000">100.000</option>
                <option value="1000000">1.000.000</option>
-               <option value="1000000">10.000.000</option>
+               <option value="10000000">10.000.000</option>
+               <option value="100000000">100.000.000</option>
             </select>
          </div>
          <div className="quotaValue flex flex-col gap-2 text-white mt-2">
@@ -190,7 +191,7 @@ export default function DataForm() {
             </select>
          </div>
          <div className="limitValue flex flex-col gap-2 text-white mt-2">
-            <label htmlFor="limitValue">Quantidade limite por usuário</label>
+            <label htmlFor="limitValue">Quantidade limite de cotas por usuário</label>
             <input
                className="p-2 rounded-lg bg-gray-800"
                type="text"
@@ -203,7 +204,7 @@ export default function DataForm() {
             />
          </div>
          <div className="minimunQuantity flex flex-col gap-2 text-white mt-2">
-            <label htmlFor="minimunQuantity">Quantidade mínima de cotas</label>
+            <label htmlFor="minimunQuantity">Quantidade mínima de cotas por compra</label>
             <input
                className="p-2 rounded-lg bg-gray-800"
                type="text"
@@ -216,7 +217,7 @@ export default function DataForm() {
             />
          </div>
          <div className="maximunQuantity flex flex-col gap-2 text-white mt-2">
-            <label htmlFor="maximunQuantity">Quantidade máxima de cotas</label>
+            <label htmlFor="maximunQuantity">Quantidade máxima de cotas por compra</label>
             <input
                className="p-2 rounded-lg bg-gray-800"
                type="text"

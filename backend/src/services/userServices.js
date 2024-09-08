@@ -20,7 +20,7 @@ const setUser = async (req, res) => {
     password,
     confirmPassword,
     cpf,
-    dateOfBirth,
+    date_of_birth,
     phone,
     confirmPhone,
     address,
@@ -30,11 +30,11 @@ const setUser = async (req, res) => {
     cep,
     street,
     number,
-    neighborhood,
-    complement,
+    district,
+    address_complement,
     uf,
     city,
-    referencePoint,
+    reference_point,
   } = address;
 
   if (
@@ -44,21 +44,19 @@ const setUser = async (req, res) => {
     !password ||
     !confirmPassword ||
     !cpf ||
-    !dateOfBirth ||
+    !date_of_birth ||
     !phone ||
     !confirmPhone ||
     !cep ||
     !street ||
     !number ||
-    !neighborhood ||
-    !complement ||
+    !district ||
+    !address_complement ||
     !uf ||
     !city ||
-    !referencePoint
+    !reference_point
   ) {
-    return res
-      .status(400)
-      .json({ message: "Todos os campos são obrigatórios" });
+    return res.status(400).json({ message: "Todos os campos são obrigatórios" });
   }
 
   if (password !== confirmPassword) {
@@ -66,17 +64,13 @@ const setUser = async (req, res) => {
   }
 
   if (phone !== confirmPhone) {
-    return res
-      .status(400)
-      .json({ message: "Os números de telefones não coincidem" });
+    return res.status(400).json({ message: "Os números de telefones não coincidem" });
   }
 
   try {
     const userExistCpf = await User.findOne({ where: { cpf } });
     if (userExistCpf) {
-      return res
-        .status(400)
-        .json({ message: "Já existe um usuário registrado com esse CPF" });
+      return res.status(400).json({ message: "Já existe um usuário registrado com esse CPF" });
     }
 
     const userExistUsername = await User.findOne({ where: { username } });
@@ -85,24 +79,23 @@ const setUser = async (req, res) => {
         message: "Já existe um usuário registrado com esse nome de usuário",
       });
     }
+
     const newUser = await User.create({
       name,
       username,
       email,
       password,
       cpf,
-      dateOfBirth,
+      date_of_birth,
       phone,
-      address: {
-        cep,
-        street,
-        number,
-        neighborhood,
-        complement,
-        uf,
-        city,
-        referencePoint,
-      },
+      cep,
+      street,
+      number,
+      district,
+      address_complement,
+      uf,
+      city,
+      reference_point,
     });
 
     res.status(201).json({ message: "Usuário criado com sucesso", user: newUser });
@@ -111,5 +104,6 @@ const setUser = async (req, res) => {
     res.status(500).json({ message: "Erro no servidor" });
   }
 };
+
 export { getUsers, setUser }
 

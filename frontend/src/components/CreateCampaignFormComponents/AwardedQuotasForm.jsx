@@ -36,7 +36,7 @@ export default function AwardedQuotasForm() {
             <p className="text-xs text-yellow-500 mt-1 mb-1">Separe os valores por vírgula e não use espaço</p>
             <input
               type="text"
-              className="p-2 mb-2 w-full rounded p-2 rounded-md bg-gray-800 text-white"
+              className="p-2 mb-2 w-full rounded-md bg-gray-800 text-white"
               placeholder="ex: 12345, 00324, 100001, 00065"
               value={formData.awardedQuotas}
               onChange={(event) => updateFormData("awardedQuotas", event.target.value)}

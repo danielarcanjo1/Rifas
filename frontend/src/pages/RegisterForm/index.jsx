@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"
+//import { useNavigate } from "react-router-dom"
 
 export default function RegisterForm() {
   
@@ -9,7 +9,7 @@ export default function RegisterForm() {
       email: "",
       password: "",
       confirmPassword: "",
-      dateOfBirth: "",
+      date_of_birth: "",
       cpf: "",
       phone: "",
       confirmPhone: "",
@@ -17,18 +17,18 @@ export default function RegisterForm() {
          cep: "",
          street: "",
          number: "",
-         neighborhood: "",
-         complement: "",
+         district: "",
+         address_complement: "",
          uf: "",
          city: "",
-         referencePoint: "",
+         reference_point: "",
       },
    });
 
    const [isDialogOpen, setIsDialogOpen] = useState(false);
    const [dialogMessage, setDialogMessage] = useState("");
    const [isError, setIsError] = useState(false);
-   const navigate = useNavigate()
+   //const navigate = useNavigate()
 
    const handleChange = (e) => {
       const { name, value } = e.target;
@@ -54,7 +54,7 @@ export default function RegisterForm() {
       e.preventDefault();
 
       try {
-         const response = await fetch("http://localhost:3000/register", {
+         const response = await fetch("http://localhost:3000/register-user", {
             method: "POST",
             headers: {
                "Content-Type": "application/json",
@@ -134,15 +134,15 @@ export default function RegisterForm() {
                   />
                </div>
                <div className="flex flex-col gap-2">
-                  <label className="font-semibold" htmlFor="dateOfBirth">
+                  <label className="font-semibold" htmlFor="date_of_birth">
                      Data de nascimento
                   </label>
                   <input
                      className="outline-none border rounded p-2"
                      type="date"
-                     id="dateOfBirth"
-                     name="dateOfBirth"
-                     value={formData.dateOfBirth}
+                     id="date_of_birth"
+                     name="date_of_birth"
+                     value={formData.date_of_birth}
                      onChange={handleChange}
                   />
                </div>
@@ -254,28 +254,28 @@ export default function RegisterForm() {
                   />
                </div>
                <div className="flex flex-col gap-2">
-                  <label className="font-semibold" htmlFor="neighborhood">
+                  <label className="font-semibold" htmlFor="district">
                      Bairro
                   </label>
                   <input
                      className="outline-none border rounded p-2"
                      type="text"
-                     id="neighborhood"
-                     name="address[neighborhood]"
-                     value={formData.address.neighborhood}
+                     id="district"
+                     name="address[district]"
+                     value={formData.address.district}
                      onChange={handleChange}
                   />
                </div>
                <div className="flex flex-col gap-2">
-                  <label className="font-semibold" htmlFor="complement">
+                  <label className="font-semibold" htmlFor="adress_complement">
                      Complemento
                   </label>
                   <input
                      className="outline-none border rounded p-2"
                      type="text"
-                     id="complement"
-                     name="address[complement]"
-                     value={formData.address.complement}
+                     id="address_complement"
+                     name="address[address_complement]"
+                     value={formData.address.address_complement}
                      onChange={handleChange}
                   />
                </div>
@@ -306,15 +306,15 @@ export default function RegisterForm() {
                   />
                </div>
                <div className="flex flex-col gap-2">
-                  <label className="font-semibold" htmlFor="referencePoint">
+                  <label className="font-semibold" htmlFor="reference_point">
                      Ponto de referência
                   </label>
                   <input
                      className="outline-none border rounded p-2"
                      type="text"
-                     id="referencePoint"
-                     name="address[referencePoint]"
-                     value={formData.address.referencePoint}
+                     id="reference_point"
+                     name="address[reference_point]"
+                     value={formData.address.reference_point}
                      onChange={handleChange}
                   />
                </div>
